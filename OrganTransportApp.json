@@ -1,0 +1,311 @@
+{
+    "ApplicationName":"OrganTransportApp",
+    "DisplayName": "Organ Transport Application",
+    "Description": "Application to verify that the temperature of a donated organ is suitable during its transport until the transplant surgery.",
+    "ApplicationRoles": [
+        {
+            "Name": "Admin",
+            "Description": "Admin"
+        },
+        {
+            "Name": "User",
+            "Description": "User"
+        }
+    ],
+    "Workflows": [
+        {
+            "Name": "OrganTransportApp",
+            "DisplayName": "Organ Transport Application",
+            "Description": "Application to verify that the temperature of a donated organ is suitable during its transport until the transplant surgery.",
+            "Initiators": [ "Admin" ],
+            "StartState": "Creating",
+            "Properties": [
+                {
+                    "Name": "DonationState",
+                    "DisplayName": "Donation State",
+                    "Description": "Holds the state of the doantion process.",
+                    "Type": {
+                        "Name": "state"
+                    }
+                },
+                {
+                    "Name": "DonationCenter",
+                    "DisplayName": "Donation Center",
+                    "Description": "Health agency that approves and initiates the donation process.",
+                    "Type": {
+                        "Name": "user"
+                    }
+                },
+                {
+                    "Name": "OrganSender",
+                    "DisplayName": "Sending Hospital",
+                    "Description": "Hospital that sends the donated organ.",
+                    "Type": {
+                        "Name": "user"
+                    }
+                },
+                {
+                    "Name": "TransportVehicle",
+                    "DisplayName": "Transport Vehicle",
+                    "Description": "Vehicle that transports the donated organ.",
+                    "Type": {
+                        "Name": "user"
+                    }
+                },
+                {
+                    "Name": "TelemetryDevice",
+                    "DisplayName": "Telemetry Device",
+                    "Description": "Device that sends temperature telemetry.",
+                    "Type": {
+                        "Name": "user"
+                    }
+                }, 
+                {
+                    "Name": "OrganReceiver",
+                    "DisplayName": "Receiving Hospital",
+                    "Description": "Hospital that receives the donated organ.",
+                    "Type": {
+                        "Name": "user"
+                    }
+                },
+                {
+                    "Name": "MinTemperature",
+                    "DisplayName": "Min Temperature",
+                    "Description": "Min temperature requirement.",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "MaxTemperature",
+                    "DisplayName": "Max Temperature",
+                    "Description": "Max temperature requirement.",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "SensorTemperature",
+                    "DisplayName": "Sensor Temperature",
+                    "Description": "Temperature value of the sensor.",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "DonationInfo",
+                    "DisplayName": "Donation Info",
+                    "Description": "The organ and donation descriptions.",
+                    "Type":{
+                        "Name": "string"
+                    }
+                }
+            ],
+            "Constructor": {
+                "Parameters": [
+                    {
+                        "Name": "sending",
+                        "DisplayName": "Organ Sender",
+                        "Description": "Hospital that sends the donated organ.",
+                        "Type": {
+                            "Name": "user"
+                        }                       
+                    },    
+                    {
+                        "Name": "vehicle",
+                        "DisplayName": "Transport Vehicle",
+                        "Description": "Vehicle that transports the donated organ.",
+                        "Type": {
+                            "Name": "user"
+                        }                       
+                    },    
+                    {
+                        "Name": "device",
+                        "DisplayName": "Telemetry Device",
+                        "Description": "Device that sends temperature telemetry.",
+                        "Type": {
+                            "Name": "user"
+                        }                       
+                    },  
+                    {
+                        "Name": "receiving",
+                        "DisplayName": "Organ Receiver",
+                        "Description": "Hospital that receives the donated organ.",
+                        "Type": {
+                            "Name": "user"
+                        }                       
+                    },
+                    {
+                        "Name": "donation",
+                        "DisplayName": "Donation",
+                        "Description": "The organ and donation descriptions.",
+                        "Type": {
+                            "Name": "string"
+                        }
+
+                    },
+                    {
+                        "Name": "min",
+                        "DisplayName": "Min Temperature",
+                        "Description": "Min temperature requirement.",
+                        "Type": {
+                            "Name": "int"
+                        }                       
+                    } ,  
+                    {
+                        "Name": "max",
+                        "DisplayName": "Max Temperature",
+                        "Description": "Max temperature requirement.",
+                        "Type": {
+                            "Name": "int"
+                        }                       
+                    }                              
+                ]
+            },
+            "Functions":[
+                {
+                    "Name": "OrganReady",
+                    "DisplayName": "Organ Ready",
+                    "Description": "The organ is ready in the sending hospital.",
+                    "Parameters": []
+                },
+                {
+                    "Name": "OrganInTransit",
+                    "DisplayName": "Organ In Transit",
+                    "Description": "The organ is in transit inside the transport vehicle..",
+                    "Parameters": []
+                },
+                {
+                    "Name": "OrganArrived",
+                    "DisplayName": "Organ Arrived",
+                    "Description": "The organ has arrived ot the receiving hospital.",
+                    "Parameters": []
+                },
+                {
+                    "Name": "TemperatureCheck",
+                    "DisplayName": "Temperature Check",
+                    "Description": "The temperature is checked inside the organ transport fridge.",
+                    "Parameters": [
+                        {
+                            "Name": "temperature",                          
+                            "DisplayName": "Temperature",
+                            "Description": "Temperature value of the sensor.",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "States": [
+                {
+                    "Name": "Creating",
+                    "DisplayName": "Creating",
+                    "Description": "Creating the donation process...",
+                    "PercentComplete": 0,
+                    "Value": 0,
+                    "Style": "Success",
+                    "Transitions": []
+                },
+                {
+                    "Name": "Created",
+                    "DisplayName": "Created",
+                    "Description": "The donation process has been created.",
+                    "PercentComplete": 20,
+                    "Value": 1,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "Admin", "User" ],
+                            "AllowedInstanceRoles": [ "OrganSender" ],
+                            "Description": "The organ is ready in the sending hospital.",
+                            "Function": "OrganReady",
+                            "NextStates": [ "Ready" ],
+                            "DisplayName": "Organ Ready"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Ready",
+                    "DisplayName": "Ready",
+                    "Description": "The organ is ready in the sending hospital.",
+                    "PercentComplete": 40,
+                    "Value": 2,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "Admin", "User" ],
+                            "AllowedInstanceRoles": [ "TransportVehicle" ],
+                            "Description": "The organ is in transit inside the transport vehicle.",
+                            "Function": "OrganInTransit",
+                            "NextStates": [ "InTransit" ],
+                            "DisplayName": "Organ In Transit"
+                        }
+                    ]
+                },
+                {
+                    "Name": "InTransit",
+                    "DisplayName": "In Transit",
+                    "Description": "The organ is in transit inside the transport vehicle.",
+                    "PercentComplete": 60,
+                    "Value": 3,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "Admin", "User" ],
+                            "AllowedInstanceRoles": [ "TelemetryDevice" ],
+                            "Description": "The temperature is checked inside the organ transport fridge.",
+                            "Function": "TemperatureCheck",
+                            "NextStates": [ "Monitoring", "Spoiled" ],
+                            "DisplayName": "Temperature Check"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Monitoring",
+                    "DisplayName": "Monitoring",
+                    "Description": "The temperature is checked inside the organ transport fridge.",
+                    "PercentComplete": 80,
+                    "Value": 4,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "Admin", "User" ],
+                            "AllowedInstanceRoles": [ "OrganReceiver" ],
+                            "Description": "The organ has arrived at the receiving hospital.",
+                            "Function": "OrganArrived",
+                            "NextStates": [ "Completed" ],
+                            "DisplayName": "Organ Arrived"
+                        },
+                        {
+                            "AllowedRoles": [ "Admin", "User" ],
+                            "AllowedInstanceRoles": [ "TelemetryDevice" ],
+                            "Description": "The temperature is checked inside the organ transport fridge.",
+                            "Function": "TemperatureCheck",
+                            "NextStates": [ "Monitoring", "Spoiled" ],
+                            "DisplayName": "Temperature Check"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Completed",
+                    "DisplayName": "Completed",
+                    "Description": "The organ has arrived ot the receiving hospital.",
+                    "PercentComplete": 100,
+                    "Value": 5,
+                    "Style": "Success",
+                    "Transitions": []
+                },
+                {
+                    "Name": "Spoiled",
+                    "DisplayName": "Spoiled",
+                    "Description": "The organ was spoiled.",
+                    "PercentComplete": 100,
+                    "Value": 6,
+                    "Style": "Failure",
+                    "Transitions": []
+                }
+            ]
+        }
+    ]
+}
