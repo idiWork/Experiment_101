@@ -1,0 +1,11 @@
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\bin\Debug\netcoreapp2.1\ConsoleAppEventHubs.deps.json
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\bin\Debug\netcoreapp2.1\ConsoleAppEventHubs.runtimeconfig.json
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\bin\Debug\netcoreapp2.1\ConsoleAppEventHubs.runtimeconfig.dev.json
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\bin\Debug\netcoreapp2.1\ConsoleAppEventHubs.dll
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\obj\Debug\netcoreapp2.1\ConsoleAppEventHubs.csprojAssemblyReference.cache
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\obj\Debug\netcoreapp2.1\ConsoleAppEventHubs.csproj.CoreCompileInputs.cache
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\obj\Debug\netcoreapp2.1\ConsoleAppEventHubs.AssemblyInfoInputs.cache
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\obj\Debug\netcoreapp2.1\ConsoleAppEventHubs.AssemblyInfo.cs
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\bin\Debug\netcoreapp2.1\ConsoleAppEventHubs.pdb
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\obj\Debug\netcoreapp2.1\ConsoleAppEventHubs.dll
+C:\Users\SergioVelasco\Desktop\BlockchainSharing\ExperimentIoTBlockchain\ConsoleAppEventHubs\obj\Debug\netcoreapp2.1\ConsoleAppEventHubs.pdb
