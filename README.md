@@ -35,3 +35,15 @@ In this case, the organ transport refrigeration system will have a temperature m
 First, the MxChip AZ3166 device connects to Microsoft Azure thru Wi-Fi. Then, we can collect all data readings by using Azure IoT Central and Azure IoT Hubs. After that, the data are sent to Azure Event Hubs and finally, they are sent to the main application.
 
 Also, we set up an Azure Blockchain Workbench application which receives the measurements after passing through Azure Functions and Azure Logic Apps and it reports the status to the agents in real time. At this point, the agents can perform some predefined actions and the application registers every step to ensure the safety of it.
+
+## Links
+
+[Experiment: Using Blockchain & IoT During Organ Transportation](https://www.idiwork.com/projects/experiment-101/)
+
+[Architecture Diagram: Services and Resources](https://www.idiwork.com/experiment-101-architectural-diagram/)
+
+[Step by Step 1: How to set up an IoT device in Azure IoT Hub](https://www.idiwork.com/step-by-step-how-to-set-up-an-iot-device-in-azure-iot-hub/)
+
+[Step by Step 2: How to create a Blockchain Workbench App](https://www.idiwork.com/how-to-create-a-blockchain-workbench-app/)
+
+[Step by Step 3: How to create an Azure Function App to record telemetry readings](https://www.idiwork.com/experiment-101-how-to-create-and-azure-function-app-to-record-telemtry-readings/)
